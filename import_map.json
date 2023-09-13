@@ -1,6 +1,6 @@
 {
   "imports": {
-    "deco-sites/riquezzz/": "./",
+    "deco-sites/bawclothing/": "./",
     "deco-sites/fashion/": "./",
     "$store/": "./",
 

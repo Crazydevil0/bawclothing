@@ -3,7 +3,7 @@ import { useSignal } from "@preact/signals";
 import { ComponentChildren } from "preact";
 import { useEffect, useState } from "preact/hooks";
 import Button from "$store/components/ui/Button.tsx";
-import Icon from "deco-sites/riquezzz/components/ui/Icon.tsx";
+import Icon from "deco-sites/bawclothing/components/ui/Icon.tsx";
 import Buttons from "$store/components/header/Buttons.tsx";
 import Searchbar from "../search/Searchbar.tsx";
 

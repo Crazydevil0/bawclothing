@@ -3,7 +3,7 @@ import { useState } from "preact/hooks";
 import Modal from "$store/components/ui/Modal.tsx";
 import { lazy, Suspense } from "preact/compat";
 import Loading from "$store/components/ui/Loading.tsx";
-import SizebayIframe from "deco-sites/riquezzz/components/ui/SizebayIframe.tsx";
+import SizebayIframe from "deco-sites/bawclothing/components/ui/SizebayIframe.tsx";
 import Icon from "$store/components/ui/Icon.tsx";
 
 export interface Props {

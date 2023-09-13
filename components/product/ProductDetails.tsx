@@ -20,14 +20,14 @@ import ProductImageZoom from "$store/islands/ProductImageZoom.tsx";
 import WishlistIcon from "$store/components/wishlist/WishlistButton.tsx";
 import ShareButton from "$store/islands/ShareButton.tsx";
 
-import ProductReviews from "deco-sites/riquezzz/components/product/ProductReviews.tsx";
+import ProductReviews from "deco-sites/bawclothing/components/product/ProductReviews.tsx";
 import { ResponseReviews } from "$store/loaders/reviewsandratings.ts";
 import type { SectionProps } from "$live/mod.ts";
-import { default as reviewsLoader } from "deco-sites/riquezzz/loaders/reviewsandratings.ts";
+import { default as reviewsLoader } from "deco-sites/bawclothing/loaders/reviewsandratings.ts";
 import AvatarColor from "$store/components/ui/AvatarColor.tsx";
 import { useState } from "preact/hooks";
 import { useVariantPossibilities } from "$store/sdk/useVariantPossiblities.ts";
-import SizebayButtons from "deco-sites/riquezzz/components/product/SizebayButtons.tsx";
+import SizebayButtons from "deco-sites/bawclothing/components/product/SizebayButtons.tsx";
 import type { LoaderContext } from "$live/mod.ts";
 import { getCookies, setCookie } from "std/http/mod.ts";
 
@@ -78,9 +78,9 @@ export async function loader(
       "http://localhost:8000",
       "https://www.bawclothing.com.br",
     ).split("?")[0];
-  } else if (page?.product.url?.includes("https://riquezzz.deco.site/")) {
+  } else if (page?.product.url?.includes("https://bawclothing.deco.site/")) {
     permaLink = page?.product.url?.replace(
-      "https://riquezzz.deco.site",
+      "https://bawclothing.deco.site",
       "https://www.bawclothing.com.br",
     ).split("?")[0];
   } else {

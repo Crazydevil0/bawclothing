@@ -1,5 +1,5 @@
 {
-  "namespace": "deco-sites/riquezzz",
+  "namespace": "deco-sites/bawclothing",
   "siteId": 1285,
   "imports": ["$live/live.gen.ts", "deco-sites/std/live.gen.ts"]
 }

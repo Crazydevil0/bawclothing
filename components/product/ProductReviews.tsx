@@ -1,7 +1,7 @@
 import { useId } from "preact/hooks";
 import type { LoaderReturnType } from "$live/types.ts";
 import type { ProductDetailsPage } from "deco-sites/std/commerce/types.ts";
-import Button from "deco-sites/riquezzz/components/ui/Button.tsx";
+import Button from "deco-sites/bawclothing/components/ui/Button.tsx";
 import { useState } from "preact/hooks";
 import { Runtime } from "../../runtime.ts";
 import { useCallback } from "preact/hooks";
@@ -31,7 +31,7 @@ const NewRatingForm = (
   }) => {
     setIsLoading(true);
     const data = await Runtime.invoke({
-      key: "deco-sites/riquezzz/actions/createReview.ts",
+      key: "deco-sites/bawclothing/actions/createReview.ts",
       props: body,
     });
     setFormSent(true);

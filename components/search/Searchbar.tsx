@@ -137,7 +137,6 @@ function Searchbar({
             }}
             placeholder={placeholder}
             role="combobox"
-            aria-controls="search-suggestion"
             autocomplete="off"
           />
           <Button
@@ -147,7 +146,7 @@ function Searchbar({
             tabIndex={-1}
           >
             <Icon
-              class="text-base-300"
+              class=" text-[#2f2f2f]"
               id="MagnifyingGlass"
               size={20}
               strokeWidth={0.01}

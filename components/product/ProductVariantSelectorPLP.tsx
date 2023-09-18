@@ -86,7 +86,7 @@ function VariantSelector(
   ).replace(" de", "");
 
   return (
-    <li class="flex items-center justify-center  w-full ml-[-20px] ">
+    <li class="flex items-center justify-center  w-full">
       {Object.keys(possibilities).map((name) => (
         <ul class="flex flex-row flex-wrap  gap-2  justify-center  p-[0px] ">
           {newVariants.length > 0
@@ -103,7 +103,19 @@ function VariantSelector(
                 content={item?.value!}
               />
             )))
-            : ("")}
+            : (variants.map((item) => (
+              <AddToCartAvatar
+                skuId={item?.productID || productID}
+                sellerId={seller || ""}
+                price={price ?? 0}
+                discount={price && listPrice ? listPrice - price : 0}
+                name={product.name ?? ""}
+                productGroupId={product.isVariantOf?.productGroupID ??
+                  ""}
+                variant={item?.lvl !== 0 ? "default" : "disabled"}
+                content={item?.value!}
+              />
+            )))}
         </ul>
       ))}
     </li>

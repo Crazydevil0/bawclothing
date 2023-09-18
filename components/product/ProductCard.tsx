@@ -73,7 +73,7 @@ function ProductCard(
       visibleProduct,
     ]) || [],
   );
- 
+
   const getVariants = (product: Product) => {
     const possibilities = useVariantPossibilities(product);
 
@@ -221,7 +221,7 @@ function ProductCard(
             {/* COMPRA */}
             <ul class="flex justify-center items-center  w-full">
               <a class="uppercase w-full text-white text-center font-bold text-xl">
-                Compra 
+                Compra
               </a>
             </ul>
           </figcaption>

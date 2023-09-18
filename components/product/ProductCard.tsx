@@ -73,7 +73,7 @@ function ProductCard(
       visibleProduct,
     ]) || [],
   );
-
+ 
   const getVariants = (product: Product) => {
     const possibilities = useVariantPossibilities(product);
 
@@ -221,18 +221,16 @@ function ProductCard(
             {/* COMPRA */}
             <ul class="flex justify-center items-center  w-full">
               <a class="uppercase w-full text-white text-center font-bold text-xl">
-                Compra eqweqewqeqwewqewqewqeqwewq
+                Compra 
               </a>
             </ul>
           </figcaption>
           {/* SKU Selector */}
-          {
-            /* <figcaption class="card-body card-actions m-0 p-[10px] absolute bottom-1 left-0 w-full  transition-opacity opacity-0 group-hover/edit:opacity-100 bg-white ">
+          <figcaption class="card-body card-actions m-0 p-[10px] absolute bottom-1 left-0 w-full  transition-opacity opacity-0 group-hover/edit:opacity-100 bg-white ">
             <ProductSelector product={product} />
-          </figcaption> */
-          }
+          </figcaption>
         </div>
-      </figure>""
+      </figure>
       {/* Prices & Name */}{" "}
       <div class="mt-2">
         {similarProducts.length > 1

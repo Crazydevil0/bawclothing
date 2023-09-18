@@ -38,6 +38,7 @@ function VariantSelector(
       return { value, link, lvl: lvl as number, productID: skuID };
     },
   );
+  
 
   const outOfStock = variants.filter((item) => item.lvl > 0).length === 0;
   const pppp = variants.find((sku) => sku.value === "4P") ||
@@ -68,6 +69,7 @@ function VariantSelector(
   const [offer, setOffer] = useState(useOffer(visibleProduct.offers));
   const [installmentsText, setInstallmentsText] = useState("");
 
+  
   const {
     name,
     image: images,
@@ -75,46 +77,36 @@ function VariantSelector(
     isSimilarTo,
   } = visibleProduct;
   const fImages = images?.filter((img) =>
-    img.alternateName !== "color-thumbnail"
-  );
-  const productGroupID = isVariantOf?.productGroupID;
-  const [front, back] = fImages ?? [];
-  const { listPrice, price, installments, availability, seller } = offer;
-  const installmentText = installments?.replace(" sem juros", "").replace(
-    ".",
-    ",",
-  ).replace(" de", "");
+  img.alternateName !== "color-thumbnail"
+);
+const productGroupID = isVariantOf?.productGroupID;
+const [front, back] = fImages ?? [];
+const { listPrice, price, installments, availability, seller } = offer;
+const installmentText = installments?.replace(" sem juros", "").replace(
+  ".",
+  ",",
+).replace(" de", "");
 
   return (
     <li class="flex items-center justify-center  w-full ml-[-20px] ">
       {Object.keys(possibilities).map((name) => (
         <ul class="flex flex-row flex-wrap  gap-2  justify-center  p-[0px] ">
-          {newVariants.length > 0
-            ? (newVariants.map((item) => (
-              <AddToCartAvatar
-                skuId={item?.productID || productID}
-                sellerId={seller || ""}
-                price={price ?? 0}
-                discount={price && listPrice ? listPrice - price : 0}
-                name={product.name ?? ""}
-                productGroupId={product.isVariantOf?.productGroupID ??
-                  ""}
-                variant={item?.lvl !== 0 ? "default" : "disabled"}
-                content={item?.value!}
-              />
-            )))
-            : (Object.entries(possibilities[name]).map(([value, [link]]) => (
-              <li class="card-body card-actions m-0 max-w-[40px]  max-h-[40px] mb-[10px] items-center p-[0px]">
-                <a href={link}>
-                  <Avatar
-                    content={value}
-                    variant={link === url ? "active" : "default"}
-                    textSize="lg"
-                  />
-                </a>
-              </li>
-            )))}
-        </ul>
+        {newVariants.length > 0
+          ? (newVariants.map((item) => (  
+             <AddToCartAvatar
+            skuId={item?.productID || productID}
+            sellerId={seller || ""}
+            price={price ?? 0}
+            discount={price && listPrice ? listPrice - price : 0}
+            name={product.name ?? ""}
+            productGroupId={product.isVariantOf?.productGroupID ??
+              ""}
+            variant={item?.lvl !== 0 ? "default" : "disabled"}
+            content={item?.value!}
+          />
+          )))
+          : ("")}
+      </ul>
       ))}
     </li>
   );

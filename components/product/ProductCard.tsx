@@ -230,7 +230,7 @@ function ProductCard(
             <ProductSelector product={product} />
           </figcaption>
         </div>
-      </figure>""
+      </figure>
       {/* Prices & Name */}{" "}
       <div class="mt-2">
         {similarProducts.length > 1

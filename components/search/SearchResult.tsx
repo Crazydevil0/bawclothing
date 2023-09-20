@@ -178,6 +178,8 @@ function Result(
           name: "view_item_list",
           params: {
             // TODO: get category name from search or cms setting
+            departament: categories ? categories[0] : '',
+            category: categories ? categories[1] : '',
             categories: page.breadcrumb?.itemListElement.length
               ? categories
               : [],

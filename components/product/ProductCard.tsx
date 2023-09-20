@@ -231,7 +231,7 @@ function ProductCard(
           </figcaption>
         </div>
       </figure>
-      {/* Prices & Name */}{" "}
+      {/* Prices & Name */}
       <div class="mt-2">
         {similarProducts.length > 1
           ? (

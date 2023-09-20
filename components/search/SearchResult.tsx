@@ -97,7 +97,7 @@ function Result(
   },
 ) {
   const { products, filters, breadcrumb, pageInfo, sortOptions } = page;
-  console.log({ breadcrumb: page.breadcrumb })
+  console.log({ breadcrumb: page.breadcrumb });
   return (
     <>
       <div class="px-4 sm:py-10 sm:pr-14 w-full">

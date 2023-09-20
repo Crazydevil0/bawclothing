@@ -101,11 +101,13 @@ function Result(
 ) {
   const { products, filters, breadcrumb, pageInfo, sortOptions } = page;
 
-  const categories = products[0].additionalProperty?.filter(prop => prop.name === 'category').map(category => ({
+  const categories = products[0].additionalProperty?.filter((prop) =>
+    prop.name === "category"
+  ).map((category) => ({
     name: category.value,
-    id: category.propertyID
-  }))
- 
+    id: category.propertyID,
+  }));
+
   return (
     <>
       <div class="px-4 sm:py-10 sm:pr-14 w-full">
@@ -176,7 +178,9 @@ function Result(
           name: "view_item_list",
           params: {
             // TODO: get category name from search or cms setting
-            categories: page.breadcrumb?.itemListElement.length ? categories : [],
+            categories: page.breadcrumb?.itemListElement.length
+              ? categories
+              : [],
             item_list_name: "",
             item_list_id: "",
             items: page.products?.map((product) =>

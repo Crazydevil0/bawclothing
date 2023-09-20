@@ -123,7 +123,7 @@ function Searchbar({
             tabIndex={-1}
           >
             <Icon
-              class="text-base-300"
+              class=" text-[#2f2f2f]"
               id="MagnifyingGlass"
               size={20}
               strokeWidth={0.01}
@@ -131,7 +131,7 @@ function Searchbar({
           </Button>
           <input
             ref={searchInputRef}
-            id="search-input"
+            id="header-search-input"
             class="flex-grow outline-none placeholder-shown:sibling:hidden bg-transparent placeholder-black "
             name={name}
             defaultValue={query}

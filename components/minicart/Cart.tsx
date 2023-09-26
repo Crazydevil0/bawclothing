@@ -38,9 +38,7 @@ function Cart() {
 
   cart.value.items.forEach((item) => total3 += item.priceDefinition.total);
   const subTotal = total3 + (discount * -1);
-  console.log(cart.value.items);
 
-  console.log(subTotal);
 
   // Empty State
 
@@ -52,7 +50,7 @@ function Cart() {
             <div class="flex flex-row w-full items-center content-start">
               <div class="px-2 py-4 w-full">
                 <FreeShippingProgressBar
-                  total={total2 / 100}
+                  total={total3 / 100}
                   target={299}
                   locale={locale!}
                   currency={currencyCode!}

@@ -39,7 +39,6 @@ function Cart() {
   cart.value.items.forEach((item) => total3 += item.priceDefinition.total);
   const subTotal = total3 + (discount * -1);
 
-
   // Empty State
 
   if (isCartEmpty) {

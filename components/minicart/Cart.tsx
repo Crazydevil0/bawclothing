@@ -30,14 +30,14 @@ function Cart() {
   if (cart.value === null) {
     return null;
   }
-  
+
   let total3 = 0;
-  let discount = 0
+  let discount = 0;
 
   cart.value.items.forEach((item) => discount += item.priceTags[0].value);
 
   cart.value.items.forEach((item) => total3 += item.priceDefinition.total);
-  const subTotal = total3 + (discount * -1)
+  const subTotal = total3 + (discount * -1);
 
   // Empty State
 
@@ -109,7 +109,7 @@ function Cart() {
             <div class="flex justify-between items-center w-full">
               <span class="text-base uppercase">Subtotal</span>
               <span class="font-medium text-base uppercase ">
-                {formatPrice(subTotal/ 100, currencyCode!, locale)}
+                {formatPrice(subTotal / 100, currencyCode!, locale)}
               </span>
             </div>
           </div>
@@ -148,9 +148,7 @@ function Cart() {
                   name: "begin_checkout",
                   params: {
                     currency: cart.value ? currencyCode! : "",
-                    value: total?.value
-                      ? (total3 - (discount ?? 0)) / 100
-                      : 0,
+                    value: total?.value ? (total3 - (discount ?? 0)) / 100 : 0,
                     coupon: cart.value?.marketingData?.coupon ?? undefined,
 
                     items: cart.value

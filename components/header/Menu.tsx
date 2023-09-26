@@ -14,8 +14,6 @@ function MenuItem({ item }: { item: INavItem }) {
     >
       <input type="checkbox" />
       <label class="collapse-title uppercase">
-      
-
         {item.label}
       </label>
       <div class="collapse-content">

@@ -115,7 +115,7 @@ function Cart() {
           </div>
         )}
         {/* Descontos */}
-        {discount !== 0 && (
+        {discount != 0 && (
           <div class="pt-1 flex flex-col justify-end items-end gap-2 mx-4">
             <div class="flex justify-between items-center w-full">
               <span class="text-base uppercase">Descontos</span>

@@ -22,20 +22,27 @@ function Cart() {
   const { cart, loading, mapItemsToAnalyticsItems } = useCart();
   const isCartEmpty = cart.value?.items.length === 0;
   const total = cart.value?.totalizers.find((item) => item.id === "Items");
-  const totalWithDiscounts = cart.value?.value || 0;
   const totalizers = cart.value?.totalizers;
   const total2 = totalizers?.find((item) => item.id === "Items")?.value || 0;
 
-  const discounts = cart.value?.totalizers.find((item) =>
-    item.id === "Discounts"
-  );
   const locale = cart.value?.clientPreferencesData.locale;
   const currencyCode = cart.value?.storePreferencesData.currencyCode;
   if (cart.value === null) {
     return null;
   }
 
+  let total3 = 0;
+  let discount = 0;
+
+  cart.value.items.forEach((item) =>
+    discount += item.priceTags[0] ? (item.priceTags[0].value) : (0)
+  );
+
+  cart.value.items.forEach((item) => total3 += item.priceDefinition.total);
+  const subTotal = total3 + (discount * -1);
+
   // Empty State
+
   if (isCartEmpty) {
     return (
       <>
@@ -44,7 +51,7 @@ function Cart() {
             <div class="flex flex-row w-full items-center content-start">
               <div class="px-2 py-4 w-full">
                 <FreeShippingProgressBar
-                  total={total2 / 100}
+                  total={total3 / 100}
                   target={299}
                   locale={locale!}
                   currency={currencyCode!}
@@ -72,7 +79,7 @@ function Cart() {
           <div class="flex flex-row w-full items-center content-start">
             <div class="px-2 py-4 w-full">
               <FreeShippingProgressBar
-                total={total2 / 100}
+                total={total3 / 100}
                 target={299}
                 locale={locale!}
                 currency={currencyCode!}
@@ -99,34 +106,34 @@ function Cart() {
           <Coupon />
         </div>
         {/* Subtotal */}
-        {total?.value && (
+        {subTotal > 0 && (
           <div class="pt-4 flex flex-col justify-end items-end gap-2 mx-4">
             <div class="flex justify-between items-center w-full">
               <span class="text-base uppercase">Subtotal</span>
               <span class="font-medium text-base uppercase ">
-                {formatPrice(total.value / 100, currencyCode!, locale)}
+                {formatPrice(subTotal / 100, currencyCode!, locale)}
               </span>
             </div>
           </div>
         )}
         {/* Descontos */}
-        {discounts?.value && (
+        {discount != 0 && (
           <div class="pt-1 flex flex-col justify-end items-end gap-2 mx-4">
             <div class="flex justify-between items-center w-full">
               <span class="text-base uppercase">Descontos</span>
               <span class="font-medium text-base uppercase ">
-                {formatPrice(discounts.value / 100, currencyCode!, locale)}
+                {formatPrice(discount / 100, currencyCode!, locale)}
               </span>
             </div>
           </div>
         )}
         {/* Total */}
-        {total?.value && (
+        {total3 > 0 && (
           <div class="pt-1 flex flex-col justify-end items-end gap-2 mx-4">
             <div class="flex justify-between items-center w-full">
               <span class="text-base uppercase">Total</span>
               <span class="font-medium text-base uppercase ">
-                {formatPrice(totalWithDiscounts / 100, currencyCode!, locale)}
+                {formatPrice(total3 / 100, currencyCode!, locale)}
               </span>
             </div>
           </div>
@@ -143,9 +150,7 @@ function Cart() {
                   name: "begin_checkout",
                   params: {
                     currency: cart.value ? currencyCode! : "",
-                    value: total?.value
-                      ? (total?.value - (discounts?.value ?? 0)) / 100
-                      : 0,
+                    value: total?.value ? (total3 - (discount ?? 0)) / 100 : 0,
                     coupon: cart.value?.marketingData?.coupon ?? undefined,
 
                     items: cart.value

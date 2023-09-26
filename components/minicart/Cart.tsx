@@ -25,7 +25,6 @@ function Cart() {
   const totalWithDiscounts = cart.value?.value || 0;
   const totalizers = cart.value?.totalizers;
   const total2 = totalizers?.find((item) => item.id === "Items")?.value || 0;
-
   const discounts = cart.value?.totalizers.find((item) =>
     item.id === "Discounts"
   );
@@ -34,8 +33,13 @@ function Cart() {
   if (cart.value === null) {
     return null;
   }
-
+  let total3 = 0 
+  cart.value.items.forEach((item)=> total3 += item.priceDefinition.total)
+  console.log(total3)
+  console.log(cart.value.value)
+  //console.log(cart.value.items)
   // Empty State
+
   if (isCartEmpty) {
     return (
       <>
@@ -126,7 +130,7 @@ function Cart() {
             <div class="flex justify-between items-center w-full">
               <span class="text-base uppercase">Total</span>
               <span class="font-medium text-base uppercase ">
-                {formatPrice(totalWithDiscounts / 100, currencyCode!, locale)}
+                {formatPrice(total3 / 100, currencyCode!, locale)}
               </span>
             </div>
           </div>

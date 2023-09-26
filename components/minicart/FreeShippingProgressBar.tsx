@@ -23,11 +23,11 @@ function FreeShippingProgressBar({ target, total, currency, locale }: Props) {
           onClick={() => displayCart.value = !displayCart.value}
         >
           <Icon id="XMark" width={20} height={20} strokeWidth={2} />
-        </Button>
+        </Button>{" "}
         {remaining > 0
           ? (
-            <span class="font-semibold mx-[auto]">
-              Faltam {formatPrice(remaining, currency, locale)}
+            <span class="font-semibold">
+              Faltam {formatPrice(remaining, currency, locale)}{" "}
               para ganhar frete grátis!
             </span>
           )

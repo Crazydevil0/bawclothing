@@ -34,7 +34,7 @@ function Cart() {
   let total3 = 0;
   let discount = 0;
 
-  cart.value.items.forEach((item) => discount += item.priceTags[0].value);
+  cart.value.items.forEach((item) => discount += (item.priceTags[0] ?(item.priceTags[0].value ):(0) ));
 
   cart.value.items.forEach((item) => total3 += item.priceDefinition.total);
   const subTotal = total3 + (discount * -1);

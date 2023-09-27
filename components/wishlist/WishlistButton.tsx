@@ -3,6 +3,7 @@ import Icon from "$store/components/ui/Icon.tsx";
 import Button from "$store/components/ui/Button.tsx";
 import { useWishlist } from "deco-sites/std/packs/vtex/hooks/useWishlist.ts";
 import { useUser } from "deco-sites/std/packs/vtex/hooks/useUser.ts";
+import { sendEvent } from "deco-sites/fashion/sdk/analytics.tsx";
 
 export interface Props {
   productID: string;
@@ -44,6 +45,23 @@ function WishlistButton({
         if (loading.value) {
           return;
         }
+
+        sendEvent({
+          name: "add_to_wishlist",
+          params: {
+            shopper: user.value?.email
+              ? {
+                email: user.value?.email,
+                id: user.value?.id,
+              }
+              : undefined,
+            items: [{
+              item_id: productGroupID || "",
+              item_variant: productID,
+              quantity: 1,
+            }],
+          },
+        });
 
         try {
           fetching.value = true;

@@ -33,7 +33,6 @@ export const useAddToCart = (
   const { displayCart } = useUI();
   const { addItems } = useCart();
   const { user } = useUser();
-  const isUserLoggedIn = Boolean(user.value?.email);
   const onClick = useCallback(async (e: MouseEvent) => {
     e.preventDefault();
     e.stopPropagation();
@@ -48,22 +47,15 @@ export const useAddToCart = (
         orderItems: [{ id: skuId, seller: sellerId, quantity: 1 }],
       });
 
-      console.log( {
-        email: user.value?.email,
-        id: user.value?.id,
-      } )
-
-      alert('aqui')
-
       sendEvent({
         name: "add_to_cart",
         params: {
-          shopper: isUserLoggedIn
-              ? {
-                email: user.value?.email,
-                id: user.value?.id,
-              }
-              : undefined,
+          shopper: user.value?.email
+            ? {
+              email: user.value?.email,
+              id: user.value?.id,
+            }
+            : undefined,
           items: [{
             item_id: productGroupId,
             quantity: 1,
@@ -71,7 +63,6 @@ export const useAddToCart = (
             discount,
             item_name: name,
             item_variant: skuId,
-            
           }],
         },
       });

@@ -4,6 +4,7 @@ import { useCart } from "deco-sites/std/packs/vtex/hooks/useCart.ts";
 import { useUI } from "deco-sites/fashion/sdk/useUI.ts";
 import { AnalyticsEvent } from "deco-sites/std/commerce/types.ts";
 import { sendEvent } from "deco-sites/fashion/sdk/analytics.tsx";
+import { useUser } from "deco-sites/std/packs/vtex/hooks/useUser.ts";
 
 declare global {
   interface Window {
@@ -31,6 +32,7 @@ export const useAddToCart = (
   const isAddingToCart = useSignal(false);
   const { displayCart } = useUI();
   const { addItems } = useCart();
+  const { user } = useUser();
 
   const onClick = useCallback(async (e: MouseEvent) => {
     e.preventDefault();
@@ -49,6 +51,7 @@ export const useAddToCart = (
       sendEvent({
         name: "add_to_cart",
         params: {
+          user: user,
           items: [{
             item_id: productGroupId,
             quantity: 1,

@@ -48,9 +48,22 @@ export const useAddToCart = (
         orderItems: [{ id: skuId, seller: sellerId, quantity: 1 }],
       });
 
+      console.log( {
+        email: user.value?.email,
+        id: user.value?.id,
+      } )
+
+      alert('aqui')
+
       sendEvent({
         name: "add_to_cart",
         params: {
+          shopper: isUserLoggedIn
+              ? {
+                email: user.value?.email,
+                id: user.value?.id,
+              }
+              : undefined,
           items: [{
             item_id: productGroupId,
             quantity: 1,
@@ -58,12 +71,7 @@ export const useAddToCart = (
             discount,
             item_name: name,
             item_variant: skuId,
-            shopper: isUserLoggedIn
-            ? {
-              email: user.value?.email,
-              id: user.value?.id,
-            }
-            : undefined,
+            
           }],
         },
       });

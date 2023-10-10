@@ -223,11 +223,11 @@ function ProductCard(
         <div class="group/edit">
           <figcaption class=" card-body card-actions  p-[10px] absolute bottom-0 left-0 w-full  transition-opacity opacity-0 group-hover:opacity-100 bg-green-600">
             {/* COMPRA */}
-            <ul class="flex justify-center items-center  w-full">
+            <div class="flex justify-center items-center  w-full">
               <a class="uppercase w-full text-white text-center font-bold text-xl">
                 Compra
               </a>
-            </ul>
+            </div>
           </figcaption>
           {/* SKU Selector */}
           <figcaption class="card-body card-actions m-0 p-[10px] absolute bottom-1 left-0 w-full  transition-opacity opacity-0 group-hover/edit:opacity-100 bg-white ">

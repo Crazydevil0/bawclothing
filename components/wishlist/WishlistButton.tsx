@@ -4,11 +4,9 @@ import Button from "$store/components/ui/Button.tsx";
 import { useWishlist } from "deco-sites/std/packs/vtex/hooks/useWishlist.ts";
 import { useUser } from "deco-sites/std/packs/vtex/hooks/useUser.ts";
 import { sendEvent } from "deco-sites/fashion/sdk/analytics.tsx";
-import { Product } from "https://denopkg.com/deco-cx/apps@0.2.8/vtex/utils/types.ts";
 
 export interface Props {
-  product: Product
-  price: number;
+  price?: number;
   productID: string;
   productGroupID?: string;
   variant?: "icon" | "full";
@@ -16,7 +14,6 @@ export interface Props {
 
 function WishlistButton({
   variant = "icon",
-  product,
   price,
   productGroupID,
   productID,
@@ -64,7 +61,7 @@ function WishlistButton({
               item_id: productGroupID || "",
               item_variant: productID,
               value: price,
-              currency: 'BRL',
+              currency: "BRL",
               quantity: 1,
             }],
           },

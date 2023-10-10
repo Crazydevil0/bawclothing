@@ -637,7 +637,7 @@ function Details({
 
   const { productID, isVariantOf, url } = product;
   const offer = useOffer(product.offers);
-  const { price } = offer
+  const { price } = offer;
   const productGroupID = isVariantOf?.productGroupID;
 
   if (variant === "slider") {

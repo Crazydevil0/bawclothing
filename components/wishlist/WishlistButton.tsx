@@ -57,11 +57,11 @@ function WishlistButton({
                 id: user.value?.id,
               }
               : undefined,
+            value: price,
+            currency: "BRL",
             items: [{
               item_id: productGroupID || "",
               item_variant: productID,
-              value: price,
-              currency: "BRL",
               quantity: 1,
             }],
           },

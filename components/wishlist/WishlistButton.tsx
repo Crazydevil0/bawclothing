@@ -6,6 +6,7 @@ import { useUser } from "deco-sites/std/packs/vtex/hooks/useUser.ts";
 import { sendEvent } from "deco-sites/fashion/sdk/analytics.tsx";
 
 export interface Props {
+  price?: number;
   productID: string;
   productGroupID?: string;
   variant?: "icon" | "full";
@@ -13,6 +14,7 @@ export interface Props {
 
 function WishlistButton({
   variant = "icon",
+  price,
   productGroupID,
   productID,
 }: Props) {
@@ -58,6 +60,8 @@ function WishlistButton({
             items: [{
               item_id: productGroupID || "",
               item_variant: productID,
+              value: price,
+              currency: "BRL",
               quantity: 1,
             }],
           },

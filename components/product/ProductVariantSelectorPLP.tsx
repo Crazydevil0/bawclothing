@@ -86,9 +86,9 @@ function VariantSelector(
   ).replace(" de", "");
 
   return (
-    <li class="flex items-center justify-center  w-full">
+    <ul class="flex items-center justify-center  w-full">
       {Object.keys(possibilities).map((name) => (
-        <ul class="flex flex-row flex-wrap  gap-2  justify-center  p-[0px] ">
+        <li class="flex flex-row flex-wrap  gap-2  justify-center  p-[0px] ">
           {newVariants.length > 0
             ? (newVariants.map((item) => (
               <AddToCartAvatar
@@ -116,9 +116,9 @@ function VariantSelector(
                 content={item?.value!}
               />
             )))}
-        </ul>
+        </li>
       ))}
-    </li>
+    </ul>
   );
 }
 

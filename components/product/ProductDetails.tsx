@@ -329,9 +329,6 @@ function ProductInfo(
       ],
     },
   };
-  // const { price, listPrice, seller, installments, availability } = useOffer(
-  //   offers,
-  // );
 
   return (
     <>
@@ -639,6 +636,8 @@ function Details({
   const images = useStableImages(product);
 
   const { productID, isVariantOf, url } = product;
+  const offer = useOffer(product.offers);
+  const { price } = offer
   const productGroupID = isVariantOf?.productGroupID;
 
   if (variant === "slider") {
@@ -655,6 +654,7 @@ function Details({
           <div class="relative lg:col-start-2 lg:col-span-1 lg:row-start-1 lg:max-h-[930px]">
             <div class="absolute flex flex-col top-1 right-[10px]  lg:right-[80px]  justify-center items-end  z-10">
               <WishlistIcon
+                price={price}
                 productGroupID={productGroupID}
                 productID={productID}
               />

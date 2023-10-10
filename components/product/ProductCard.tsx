@@ -175,7 +175,7 @@ function ProductCard(
       <figure class="relative " style={{ aspectRatio: `${WIDTH} / ${HEIGHT}` }}>
         {/* Wishlist button */}
         <div class="absolute top-0 right-0 z-10">
-          <WishlistIcon productGroupID={productGroupID} productID={productID} />
+          <WishlistIcon price={price} productGroupID={productGroupID} productID={productID} />
         </div>
         {listPrice !== price
           ? (

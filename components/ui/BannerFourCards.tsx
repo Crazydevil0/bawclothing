@@ -268,6 +268,7 @@ function CardItem(
           {/* Wishlist button */}
           <div class="absolute top-0 right-0 z-10">
             <WishlistIcon
+              price={price}
               productGroupID={productGroupID}
               productID={productID}
             />

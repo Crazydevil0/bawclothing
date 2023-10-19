@@ -9,7 +9,7 @@ import {
 import { useOffer } from "$store/sdk/useOffer.ts";
 import ProductGallery from "$store/islands/ProductGallery.tsx";
 import type { LoaderReturnType } from "$live/types.ts";
-import type { ProductListingPage } from "deco-sites/std/commerce/types.ts";
+import type { ProductListingPage } from "apps/commerce/types.ts";
 
 export interface Props {
   page: LoaderReturnType<ProductListingPage | null>;

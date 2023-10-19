@@ -10,9 +10,9 @@ import { formatPrice } from "$store/sdk/format.ts";
 import { useVariantPossibilities } from "$store/sdk/useVariantPossiblities.ts";
 import { mapProductToAnalyticsItem } from "deco-sites/std/commerce/utils/productToAnalyticsItem.ts";
 import { sendEventOnClick } from "$store/sdk/analytics.tsx";
-import type { Product } from "deco-sites/std/commerce/types.ts";
+import type { Product } from "apps/commerce/types.ts";
 import type { LoaderReturnType } from "$live/types.ts";
-import type { ProductListingPage } from "deco-sites/std/commerce/types.ts";
+import type { ProductListingPage } from "apps/commerce/types.ts";
 import ProductSelector from "../product/ProductVariantSelectorPLP.tsx";
 
 export type BorderRadius =

@@ -2,7 +2,7 @@ import { HTML } from "deco-sites/std/components/HTMLRenderer.tsx";
 import HTMLRenderer from "deco-sites/std/components/HTMLRenderer.tsx";
 import { useState } from "preact/hooks";
 import type { LoaderReturnType } from "$live/types.ts";
-import type { ProductListingPage } from "deco-sites/std/commerce/types.ts";
+import type { ProductListingPage } from "apps/commerce/types.ts";
 /**
 @titleBy matcher
 */

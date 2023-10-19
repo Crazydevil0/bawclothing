@@ -1,6 +1,6 @@
 import Avatar from "$store/components/ui/Avatar.tsx";
 import { useVariantPossibilities } from "$store/sdk/useVariantPossiblities.ts";
-import type { Product } from "deco-sites/std/commerce/types.ts";
+import type { Product } from "apps/commerce/types.ts";
 import AddToCartAvatar from "$store/components/product/AddToCartAvatar.tsx";
 import { useOffer } from "$store/sdk/useOffer.ts";
 import Image from "deco-sites/std/components/Image.tsx";

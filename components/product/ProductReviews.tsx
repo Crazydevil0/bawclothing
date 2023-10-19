@@ -1,6 +1,6 @@
 import { useId } from "preact/hooks";
 import type { LoaderReturnType } from "$live/types.ts";
-import type { ProductDetailsPage } from "deco-sites/std/commerce/types.ts";
+import type { ProductDetailsPage } from "apps/commerce/types.ts";
 import Button from "deco-sites/bawclothing/components/ui/Button.tsx";
 import { useState } from "preact/hooks";
 import { Runtime } from "../../runtime.ts";

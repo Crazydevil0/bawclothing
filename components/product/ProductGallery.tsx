@@ -1,4 +1,4 @@
-import { Product } from "deco-sites/std/commerce/types.ts";
+import { Product } from "apps/commerce/types.ts";
 import { useUI } from "../../sdk/useUI.ts";
 import ProductCard from "./ProductCard.tsx";
 

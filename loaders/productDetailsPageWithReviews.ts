@@ -1,4 +1,4 @@
-import type { ProductDetailsPage } from "deco-sites/std/commerce/types.ts";
+import type { ProductDetailsPage } from "apps/commerce/types.ts";
 import type { RequestURLParam } from "deco-sites/std/functions/requestToParam.ts";
 import type { Context } from "deco-sites/std/packs/vtex/accounts/vtex.ts";
 import type { LegacyProduct } from "deco-sites/std/packs/vtex/types.ts";

@@ -56,7 +56,7 @@ function Coupon() {
           ref={ref}
           type="text"
           value={coupon ?? ""}
-          disabled={coupon !== null}
+          disabled={![null, undefined].includes(coupon)}
           placeholder={"Insira o código"}
         />
         {!coupon && (

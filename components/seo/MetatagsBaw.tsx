@@ -9,13 +9,13 @@ import Preview from "deco-sites/std/components/seo/components/Preview.tsx";
 import type { Props } from "deco-sites/std/components/seo/types.ts";
 
 function Metatags(props: Props) {
-  const { titleTemplate = "", context, type, themeColor, favicon } = props;
+  const { titleTemplate = "", descriptionTemplate = "", context, type, themeColor, favicon } = props;
   const twitterCard = type === "website" ? "summary" : "summary_large_image";
 
   const tags = context?.["@type"] === "ProductDetailsPage"
     ? tagsFromProduct(context, titleTemplate)
     : context?.["@type"] === "ProductListingPage"
-    ? tagsFromListing(context, titleTemplate)
+    ? tagsFromListing(context, titleTemplate, descriptionTemplate)
     : null;
 
   const { title, description, image, canonical } = handleSEO(props, tags);

@@ -9,11 +9,15 @@ export default function Site(
 ): App<Manifest, Props, [
   StdApp,
 ]> {
+  const stdApp = std(state);
   return {
-    state,
+    state: {
+      ...state,
+      ...stdApp.state
+    },
     manifest,
     dependencies: [
-      std(state),
+      stdApp
     ],
   };
 }

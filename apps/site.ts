@@ -13,11 +13,11 @@ export default function Site(
   return {
     state: {
       ...state,
-      ...stdApp.state
+      ...stdApp.state,
     },
     manifest,
     dependencies: [
-      stdApp
+      stdApp,
     ],
   };
 }
